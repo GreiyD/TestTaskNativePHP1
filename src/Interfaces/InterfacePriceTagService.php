@@ -4,5 +4,5 @@ namespace App\Interfaces;
 
 interface InterfacePriceTagService
 {
-    public function sellingPrice(float $costPrice, float $markupPercentage): float;
+    public function sellingPrice(float $costPrice): float;
 }

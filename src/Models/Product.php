@@ -9,7 +9,6 @@ class Product
     protected float $costPrice;
     protected int $stockQuantity;
     protected int $preOrder;
-    protected float $markupPercentage;
     protected PriceTagService $priceTagService;
     protected float $sellingPrice;
 
@@ -18,18 +17,16 @@ class Product
      * @param float $costPrice
      * @param int $stockQuantity
      * @param int $preOrder
-     * @param float $markupPercentage
      * @param PriceTagService $priceTagService
      */
-    public function __construct(string $name, float $costPrice, int $stockQuantity, int $preOrder, float $markupPercentage, PriceTagService $priceTagService)
+    public function __construct(string $name, float $costPrice, int $stockQuantity, int $preOrder, PriceTagService $priceTagService)
     {
         $this->name = $name;
         $this->costPrice = $costPrice;
         $this->stockQuantity = $stockQuantity;
         $this->preOrder = $preOrder;
-        $this->markupPercentage = $markupPercentage;
         $this->priceTagService = $priceTagService;
-        $this->sellingPrice = $priceTagService->sellingPrice($costPrice, $markupPercentage);
+        $this->sellingPrice = $priceTagService->sellingPrice($costPrice);
     }
 
 

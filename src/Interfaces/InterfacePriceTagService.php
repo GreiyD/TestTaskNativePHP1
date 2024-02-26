@@ -1,8 +1,8 @@
 <?php
 
-namespace Interfaces;
+namespace App\Interfaces;
 
 interface InterfacePriceTagService
 {
-
+    public function sellingPrice(float $costPrice, float $markupPercentage): float;
 }

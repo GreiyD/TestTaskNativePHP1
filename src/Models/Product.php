@@ -8,25 +8,20 @@ class Product
     protected string $name;
     protected float $costPrice;
     protected int $stockQuantity;
-    protected int $preOrder;
     protected PriceTagService $priceTagService;
     protected float $sellingPrice;
 
-    /**
-     * @param string $name
-     * @param float $costPrice
-     * @param int $stockQuantity
-     * @param int $preOrder
-     * @param PriceTagService $priceTagService
-     */
-    public function __construct(string $name, float $costPrice, int $stockQuantity, int $preOrder, PriceTagService $priceTagService)
+    protected PreOrder $preOrder;
+
+
+    public function __construct(string $name, float $costPrice, int $stockQuantity, PriceTagService $priceTagService, PreOrder $preOrder)
     {
         $this->name = $name;
         $this->costPrice = $costPrice;
         $this->stockQuantity = $stockQuantity;
-        $this->preOrder = $preOrder;
         $this->priceTagService = $priceTagService;
         $this->sellingPrice = $priceTagService->sellingPrice($costPrice);
+        $this->preOrder = $preOrder;
     }
 
 
@@ -70,12 +65,12 @@ class Product
         $this->stockQuantity = $stockQuantity;
     }
 
-    public function getPreOrder(): int
+    public function getPreOrder(): PreOrder
     {
         return $this->preOrder;
     }
 
-    public function setPreOrder(int $preOrder): void
+    public function setPreOrder(PreOrder $preOrder): void
     {
         $this->preOrder = $preOrder;
     }

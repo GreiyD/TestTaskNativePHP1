@@ -6,6 +6,10 @@ use App\Interfaces\InterfacePreOrderService;
 
 class PreOrderService implements InterfacePreOrderService
 {
+    /**
+     * @param int $n
+     * @return int
+     */
     public static function fibonacci(int $n): int
     {
         $fib = [0, 1];

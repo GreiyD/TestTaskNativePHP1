@@ -8,15 +8,20 @@ use Exception;
 
 class DateValidator implements InterfaceDateValidator
 {
+    /**
+     * @param $dateString
+     * @return string|null
+     * @throws Exception
+     */
     public static function validation($dateString): ?string
     {
-            $date = new DateTime($dateString);
+        $date = new DateTime($dateString);
 
-            $currentDate = new DateTime();
+        $currentDate = new DateTime();
 
-            if ($currentDate > $date) {
-                throw new Exception();
-            }
-            return $date->format('Y-m-d');
+        if ($currentDate > $date) {
+            throw new Exception();
+        }
+        return $date->format('Y-m-d');
     }
 }

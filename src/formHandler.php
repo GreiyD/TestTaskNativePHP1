@@ -15,11 +15,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     try {
         try {
             $preOrder = new PreOrder($_POST['dateInput'], new PreOrderService(), new DateValidator());
-        }catch (InvalidArgumentException $e) {
-            $_SESSION['exception'] =  'Ошибка: Не валидная дата';
+        } catch (InvalidArgumentException $e) {
+            $_SESSION['exception'] = 'Ошибка: Не валидная дата';
         } catch (Exception $e) {
             $_SESSION['exception'] = 'Ошибка: Неверная дата ' . $e->getMessage();
-        }finally {
+        } finally {
             header("Location: ../");
         }
 

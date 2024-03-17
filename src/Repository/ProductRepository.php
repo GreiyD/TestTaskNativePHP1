@@ -6,6 +6,10 @@ use PhpOffice\PhpSpreadsheet\IOFactory;
 
 class ProductRepository extends ExcelRepository
 {
+    /**
+     * @param $productId
+     * @return array|null
+     */
     public function getProductById($productId): ?array
     {
         $reader = IOFactory::createReader('Xlsx');
